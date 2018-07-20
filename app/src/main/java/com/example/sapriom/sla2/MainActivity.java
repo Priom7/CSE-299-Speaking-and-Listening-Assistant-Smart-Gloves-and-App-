@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private Set<BluetoothDevice> mPairedDevices;
     private ArrayAdapter<String> mBTArrayAdapter;
     private ListView mDevicesListView;
-   // private CheckBox mLED1;
+   // private CheckBox mLED1;//
     private TextToSpeech mTTS;
     private EditText mEditText;
     private SeekBar mSeekBarPitch;
