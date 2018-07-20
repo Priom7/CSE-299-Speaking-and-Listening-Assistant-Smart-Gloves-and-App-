@@ -33,7 +33,7 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    // GUI Components//
+    // GUI Components
     private TextView mBluetoothStatus;
     private TextView mReadBuffer;
     private Button mScanBtn;
