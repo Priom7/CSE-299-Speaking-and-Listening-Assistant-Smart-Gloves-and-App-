@@ -4,16 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="2dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/appback">
     <TextView
         android:id="@+id/txtt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Speaking And Listening Assistant"
-        android:gravity="center"/>
+        android:textColor="#fff"
+        android:gravity="center"
+        android:background="#1c2955"
+        android:elevation="5dp"/>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="550dp"
         android:layout_below="@+id/txtt">
 
         <LinearLayout
@@ -29,7 +34,8 @@
                 android:gravity="center"
                 android:onClick="getSpeechInput"
                 android:src="@drawable/ic_mic"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:elevation="5dp"/>
 
             <LinearLayout
                 android:layout_margin="10dp"
@@ -55,7 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="বাংলা"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:elevation="2dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,7 +76,8 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:progress="50"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:elevation="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -84,29 +92,52 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:progress="50"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:elevation="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btnback">
 
                 <Button
                     android:id="@+id/button_speak"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:enabled="false"
                     android:text="Say it!"
+                    android:elevation="5dp"
                     android:textColor="#000"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:background="#00ffffff"
+                  />
+                    <ImageView
+                        android:id="@+id/sayimg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/sayit"
+                        />
+
+                </LinearLayout>
 
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="#7cffffff"
+                    android:elevation="5dp">
                     <TextView
+                        android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/rx"
                         android:textStyle="bold" />
                     <TextView
+                        android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/read_buffer"
@@ -118,8 +149,11 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="#7cffffff"
+                    android:elevation="5dp">
                     <TextView
+                        android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.1"
@@ -128,6 +162,7 @@
                         android:maxLines="1"
                         android:textStyle="bold" />
                     <TextView
+                        android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.9"
@@ -139,33 +174,104 @@
                         />
                 </LinearLayout>
 
-                <Button
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btnback">
+                <Button
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
                     android:text="@string/bluetooth_on"
                     android:id="@+id/scan"
+                    android:elevation="5dp"
+                    android:background="#00ffffff"
                     />
+                    <ImageView
+                        android:id="@+id/onimg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/turnon"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btnback">
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
                     android:text="@string/bluetooth_off"
                     android:id="@+id/off"
+                    android:elevation="5dp"
+                    android:background="#00ffffff"
                     />
+                    <ImageView
+                        android:id="@+id/offimg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/turnoff"/>
 
-                <Button
-                    android:layout_width="match_parent"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btnback">
+                <Button
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
                     android:text="@string/show_paired_devices"
+                    android:elevation="5dp"
                     android:id="@+id/PairedBtn"
+                    android:background="#00ffffff"
                     />
 
-                <Button
-                    android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/showimg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/showpaired"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btnback">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:elevation="5dp"
+                    android:padding="5dp"
                     android:text="@string/discover_new_devices"
                     android:id="@+id/discover"
+                    android:background="#00ffffff"
                     />
+
+                    <ImageView
+                        android:id="@+id/searchimg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/discovernew"/>
+
+                </LinearLayout>
 
 
 

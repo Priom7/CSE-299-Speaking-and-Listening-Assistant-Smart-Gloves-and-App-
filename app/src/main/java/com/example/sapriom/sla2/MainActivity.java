@@ -24,6 +24,10 @@ import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         txvResult = (TextView) findViewById(R.id.txvResult);
 
         mBluetoothStatus = (TextView)findViewById(R.id.bluetoothStatus);
-        mReadBuffer = (TextView) findViewById(R.id.readBuffer);
+        mReadBuffer = (TextView) findViewById(R.id.readBuffer); // dataaaaaaaaaaaaaaaaaaaaaaaaaaaa from bluetooth
         mScanBtn = (Button)findViewById(R.id.scan);
         mOffBtn = (Button)findViewById(R.id.off);
         mDiscoverBtn = (Button)findViewById(R.id.discover);
@@ -118,11 +122,16 @@ public class MainActivity extends AppCompatActivity {
         mSeekBarPitch = findViewById(R.id.seek_bar_pitch);
         mSeekBarSpeed = findViewById(R.id.seek_bar_speed);
 
+
         mButtonSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                speak();
-            }
+
+                    speak();
+                    YoYo.with(Techniques.Tada).duration(700).repeat(5).playOn(findViewById(R.id.sayimg));
+
+
+                }
 
             private void speak() {
                 String text = mEditText.getText().toString();
@@ -163,18 +172,45 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     mReadBuffer.setText(readMessage); ////////dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                    String s = "8 9 10 8 9";
-                    String sss = mReadBuffer.getText().toString();
-                    String ss= "াম";
-                    String ssss = "খালি";
-                    if(sss==s)
+                 /*   String Adata1 = "Name"; // for matching with arduino data
+                    String Adata2 = "Water";
+                    String Adata3 = "You";
+                    String Adata4 = "What";
+                    String Adata5 = "Hello";
+                    String Adata6 = "Want"; */
+                    String Bdata = (String) mReadBuffer.getText(); // value got from the arduino
+                   /* String Rdata1= "নাম"; // for showing the result
+                    String Rdata2 = "পানি";
+                    String Rdata3 = "তুমি";
+                    String Rdata4 = "কি";
+                    String Rdata5 = "হেলো";
+                    String Rdata6 = "চাই";
+                    String ssss = "খালি"; */
+                    mEditText.setText(Bdata);
+                    /*if(Bdata==Adata1)
                     {
-                        mEditText.setText(ss);
+                        mEditText.setText(Rdata1);
                     }
-                    else
+                    if(Bdata==Adata2)
                     {
-                        mEditText.setText(ssss);
+                        mEditText.setText(Rdata2);
                     }
+                    if(Bdata==Adata3)
+                    {
+                        mEditText.setText(Rdata3);
+                    }
+                    if(Bdata==Adata4)
+                    {
+                        mEditText.setText(Rdata4);
+                    }
+                    if(Bdata==Adata5)
+                    {
+                        mEditText.setText(Adata1);
+                    }
+                    if(Bdata==Adata6) {
+                        mEditText.setText(Rdata6);
+                    }*/
+
                 }
 
                 if(msg.what == CONNECTING_STATUS){
@@ -311,9 +347,11 @@ public class MainActivity extends AppCompatActivity {
                 // The user picked a contact.
                 // The Intent's data Uri identifies which contact was selected.
                 mBluetoothStatus.setText("Enabled");
+                YoYo.with(Techniques.Tada).duration(700).repeat(5).playOn(findViewById(R.id.onimg));
             }
             else
                 mBluetoothStatus.setText("Disabled");
+            YoYo.with(Techniques.Tada).duration(700).repeat(5).playOn(findViewById(R.id.onimg));
         }
     }
 
@@ -321,9 +359,11 @@ public class MainActivity extends AppCompatActivity {
         mBTAdapter.disable(); // turn off
         mBluetoothStatus.setText("Bluetooth disabled");
         Toast.makeText(getApplicationContext(),"Bluetooth turned Off", Toast.LENGTH_SHORT).show();
+        YoYo.with(Techniques.Tada).duration(700).repeat(5).playOn(findViewById(R.id.offimg));
     }
 
     private void discover(View view){
+        YoYo.with(Techniques.Tada).duration(700).repeat(5).playOn(findViewById(R.id.searchimg));
         // Check if the device is already discovering
         if(mBTAdapter.isDiscovering()){
             mBTAdapter.cancelDiscovery();
